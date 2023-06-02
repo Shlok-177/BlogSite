@@ -25,8 +25,12 @@ const DEFAULT_LAYOUT = 'PostLayout'
 
 export async function getServerSideProps(context) {
   let { slug } = context.query
-  let postUrl = context.req.originalUrl
+  const { req } = context
+  const protocol = req.headers['x-forwarded-proto'] || 'http'
+  const host = req.headers['x-forwarded-host'] || req.headers['host']
+  const postUrl = `${protocol}://${host}${req.url}`
   console.log(postUrl)
+
   try {
     const res = await fetch(
       `${process.env.BACKEND_URL}/api/blogs?filters[slug]=${slug[0]}&populate=*`
@@ -60,9 +64,6 @@ export default function Blog({ post, prev, next, postUrl }) {
     .split('(/uploads/')
     .splice(0, keyword.length)
     .join(`(${process.env.BACKEND_URL}/uploads/`)
-
-  console.log(modifiedcontent)
-
   return (
     <>
       <SectionContainer>
