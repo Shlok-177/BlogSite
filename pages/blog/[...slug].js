@@ -28,9 +28,9 @@ export async function getServerSideProps(context) {
   const { req } = context
   const protocol = req.headers['x-forwarded-proto'] || 'http'
   const host = req.headers['x-forwarded-host'] || req.headers['host']
-  const path = req.url.split('?')[0].split('/development')[1].split('.json')[0]
-  // console.log(path);
-  const postUrl = `${protocol}://${host}${path}`
+  const path = req.url.split('?')[0].split('/blog')[1].split('.json')[0]
+  console.log(path)
+  const postUrl = `${protocol}://${host}/blog${path}`
   console.log(postUrl)
 
   try {
