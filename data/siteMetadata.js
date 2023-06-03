@@ -17,9 +17,6 @@ const siteMetadata = {
   linkedin: 'linkedin.com/in/shlok-jadeja-8b9793209',
   website: 'https://shlokjadeja.tech',
   locale: 'en-US',
-  newsletter: {
-    provider: 'emailOctopus',
-  },
   socialAccount: {
     twitter: 'jadejashlok',
   },

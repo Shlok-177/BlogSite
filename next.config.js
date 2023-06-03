@@ -74,7 +74,7 @@ module.exports = withBundleAnalyzer({
       'res.craft.do',
       'res.cloudinary.com', // Twitter Profile Picture
       'localhost',
-      'blogbackend-9mbk.onrender.com',
+      'res.cloudinary.com',
     ],
   },
   rewrites: async () => [

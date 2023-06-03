@@ -60,12 +60,6 @@ export default function Blog({ post, prev, next, postUrl }) {
   let strtags = post.attributes.tags || NONE
   let tags = strtags.split(' ')
 
-  let keyword = '(/uploads/'
-
-  const modifiedcontent = post.attributes.content
-    .split('(/uploads/')
-    .splice(0, keyword.length)
-    .join(`(${process.env.BACKEND_URL}/uploads/`)
   return (
     <>
       <SectionContainer>
@@ -119,7 +113,7 @@ export default function Blog({ post, prev, next, postUrl }) {
                   <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                     <li className="flex items-center space-x-2">
                       <Image
-                        src={`${process.env.BACKEND_URL}${post.attributes.Avtar.data[0].attributes.url}`}
+                        src={`${post.attributes.Avtar.data[0].attributes.url}`}
                         width="38px"
                         height="38px"
                         alt="avatar"
@@ -170,7 +164,7 @@ export default function Blog({ post, prev, next, postUrl }) {
                 <div>
                   <div>
                     <Image
-                      src={`${process.env.BACKEND_URL}${post.attributes.backgroundImg.data.attributes.url}`}
+                      src={`${post.attributes.backgroundImg.data.attributes.url}`}
                       width="1200px"
                       height="800px"
                       alt={post.attributes.backgroundImg.data.name}
@@ -181,7 +175,7 @@ export default function Blog({ post, prev, next, postUrl }) {
                   </div>
                 </div>
                 <ReactMarkdown className="prose w-[100%] max-w-none pt-10 pb-8 dark:prose-dark">
-                  {modifiedcontent}
+                  {post.attributes.content}
                 </ReactMarkdown>
                 <div className="grid place-items-center pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                   <div className="flex items-center space-x-4">
