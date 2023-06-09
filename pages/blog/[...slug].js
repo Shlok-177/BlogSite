@@ -29,27 +29,44 @@ export async function getServerSideProps(context) {
   const protocol = req.headers['x-forwarded-proto'] || 'http'
   const host = req.headers['x-forwarded-host'] || req.headers['host']
   const path = req.url.split('?')[0].split('/blog')[1].split('.json')[0]
-  console.log(path)
   const postUrl = `${protocol}://${host}/blog${path}`
-  console.log(postUrl)
-
   try {
     const res = await fetch(
       `${process.env.BACKEND_URL}/api/blogs?filters[slug]=${slug[0]}&populate=*`
     )
     // change id to date and display blog accrodingly that
-    const nextres = await fetch(`${process.env.BACKEND_URL}/api/blogs/?filters[id]=${3}&populate=*`)
-    const prevres = await fetch(`${process.env.BACKEND_URL}/api/blogs/?filters[id]=${2}&populate=*`)
+    const allres = await fetch(`${process.env.BACKEND_URL}/api/blogs`)
+    let allPosts = await allres.json();
+    console.log(allPosts.data);
 
     let post = await res.json()
-    let next = await nextres.json()
-    let prev = await prevres.json()
     post = post.data[0]
-    next = next.data[0]
 
-    prev = prev.data[0]
+    // Find nearest date in allPosts
+    let nearestIndex = -1;
+    let nearestDiff = Infinity;
+    const postDate = new Date(post.attributes.date);
+    for (let i = 0; i < allPosts.data.length; i++) {
+      const currentDate = new Date(allPosts.data[i].attributes.date);
+      const diff = Math.abs(currentDate - postDate);
+      if (diff < nearestDiff && allPosts.data[i].attributes.slug !== post.attributes.slug) {
+        nearestDiff = diff;
+        nearestIndex = i;
+      }
+    }
+    let next = null , prev = null;
 
-    return { props: { postUrl, post, next, prev } }
+    // Set 'next' post if found
+    if (nearestIndex !== -1) {
+      next = allPosts.data[nearestIndex];
+    }
+
+    // Set 'prev' post if found
+    if (nearestIndex !== -1 && nearestIndex !== 0) {
+      prev = allPosts.data[nearestIndex - 1];
+    }
+
+    return { props: { postUrl, post , next , prev } }
   } catch (error) {
     console.error(error)
     return { props: null }
@@ -158,7 +175,7 @@ export default function Blog({ post, prev, next, postUrl }) {
                 </dd>
               </dl>
               <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-                <div className="prose m-auto w-fit max-w-none pt-10 pb-8 dark:prose-dark lg:w-max">
+                <div className="prose m-auto w-fit max-w-none pt-10 pb-8 dark:prose-dark">
                   <h1>{post.attributes.title}</h1>
                 </div>
                 <div>
@@ -169,8 +186,8 @@ export default function Blog({ post, prev, next, postUrl }) {
                       height="800px"
                       alt={post.attributes.backgroundImg.data.name}
                       className="my-10 h-full w-full scale-[0.9] transform rounded-lg object-cover transition-all duration-1000 ease-in-out hover:scale-[1] hover:cursor-pointer"
-                      // placeholder="blur"
-                      // blurDataURL="/static/images/SVG-placeholder.png"
+                    // placeholder="blur"
+                    // blurDataURL="/static/images/SVG-placeholder.png"
                     />
                   </div>
                 </div>

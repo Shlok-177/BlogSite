@@ -21,6 +21,8 @@ export async function getServerSideProps() {
   const res = await fetch(`${process.env.BACKEND_URL}/api/blogs`)
   let posts = await res.json()
   posts = posts.data
+  // Sort posts by date in descending order (latest date first)
+  posts.sort((a, b) => new Date(b.attributes.date) - new Date(a.attributes.date));
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
     currentPage: 1,
