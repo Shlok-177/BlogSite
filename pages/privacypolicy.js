@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
       <div className="mx-auto max-w-3xl overflow-hidden">
         <div className="prose pt-7 text-gray-600 dark:text-gray-300">
           <h1 className="dark:text-gray-300">Privacy Policy</h1>
-          <p>Last updated: July 11, 2022</p>
+          <p>Last updated: June 13, 2023</p>
           <p>
             This Privacy Policy describes Our policies and procedures on the collection, use and
             disclosure of Your information when You use the Service and tells You about Your privacy

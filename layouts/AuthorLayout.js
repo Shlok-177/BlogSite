@@ -68,12 +68,12 @@ export default function AuthorLayout({ children, frontMatter }) {
                 animationDelay={300}
                 animationDuration={3000}
               >
-                {text1} Currently, I am focused on building data pipelines and automating them at{' '}
+                {text1}
                 <Link
-                  href={'https://www.accenture.com/in-en'}
+                  href={'https://www.linkedin.com/in/shlok-jadeja-8b9793209/details/certifications/'}
                   className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
                 >
-                  Accenture
+                 <span> </span>certifications
                 </Link>
               </RoughNotation>
             </p>

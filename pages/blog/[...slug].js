@@ -37,7 +37,6 @@ export async function getServerSideProps(context) {
     // change id to date and display blog accrodingly that
     const allres = await fetch(`${process.env.BACKEND_URL}/api/blogs`)
     let allPosts = await allres.json();
-    console.log(allPosts.data);
 
     let post = await res.json()
     post = post.data[0]
