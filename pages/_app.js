@@ -15,6 +15,7 @@ import LayoutWrapper from '@/components/LayoutWrapper'
 import { ClientReload } from '@/components/ClientReload'
 import ProgressBar from 'react-scroll-progress-bar'
 import ScrollTop from '@/components/ScrollTop'
+import { Analytics } from '@vercel/analytics/react';
 // import { SessionProvider } from 'next-auth/react'
 // import { Provider } from '@lyket/react'
 
@@ -60,6 +61,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
       {isDevelopment && isSocket && <ClientReload />}
       <LayoutWrapper>
         <Component {...pageProps} />
+         <Analytics />
       </LayoutWrapper>
     </ThemeProvider>
   )
