@@ -18,9 +18,7 @@ export default function Timeline() {
             <FaBlackTie className="animate-none" />
           </span>
           <h3 className="flex items-center text-base  font-semibold text-gray-900 dark:text-white">
-            Placed at <Link href="https://www.tatvasoft.com/" className="link-underline">
-              Tatvasoft
-            </Link> and start Internship 
+            Placed at <a href="https://www.tatvasoft.com/" className="mx-1">Tatvasoft</a> and start Internship 
             <span className="mr-2 ml-3 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-200 dark:text-blue-800">
               Present
             </span>
