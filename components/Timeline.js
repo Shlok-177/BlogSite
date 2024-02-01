@@ -7,6 +7,7 @@ import { FaBaby } from 'react-icons/fa'
 import { BsBuilding } from 'react-icons/bs'
 import { RiDoorClosedLine } from 'react-icons/ri'
 import { TbDeviceDesktopAnalytics } from 'react-icons/tb'
+import Link from './Link'
 
 export default function Timeline() {
   return (
