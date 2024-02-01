@@ -15,7 +15,7 @@ const siteMetadata = {
   github: 'https://github.com/Shlok-177',
   twitter: 'https://twitter.com/jadejashlok',
   linkedin: 'linkedin.com/in/shlok-jadeja-8b9793209',
-  website: 'https://shlokjadeja.tech',
+  website: 'https://shlokjadeja.netlify.app',
   locale: 'en-US',
   socialAccount: {
     twitter: 'jadejashlok',

@@ -21,7 +21,7 @@ const projectsData = [
     tech2: 'CSS-Bootstrap',
     tech3: 'Javascript',
     github: 'https://github.com/Shlok-177/Blood_Bank_Using_PHP',
-    href: 'http://blooddonationproject.shlokjadeja.tech/home.php',
+    href: 'http://blooddonationproject.shlokjadeja.netlify.app/home.php',
     imgSrc: 'https://i.ibb.co/09m2Bkv/Screenshot-2023-02-17-at-15-23-28-Online-Blood-Bank.png',
   },
 ]
