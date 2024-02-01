@@ -17,7 +17,9 @@ export default function Timeline() {
             <FaBlackTie className="animate-none" />
           </span>
           <h3 className="flex items-center text-base  font-semibold text-gray-900 dark:text-white">
-            Placed at <a href='https://www.tatvasoft.com/'>Tatvasoft</a> and start Internship 
+            Placed at <Link href="https://www.tatvasoft.com/" className="link-underline">
+              Tatvasoft
+            </Link> and start Internship 
             <span className="mr-2 ml-3 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-200 dark:text-blue-800">
               Present
             </span>
@@ -26,7 +28,7 @@ export default function Timeline() {
             Januray 8 2024
           </time>
           <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-            Feel confident that I can work as a junior Data Engineer. Wish me Luck
+            Feel confident that I can work as a junior Software Engineer. Wish me Luck
           </p>
         </li>
         <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white px-4 py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
